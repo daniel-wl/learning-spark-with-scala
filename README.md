@@ -1,4 +1,4 @@
-# Learning Scala
+# Learning Spark with Scala
 ## Initial setup
 Before we can start learning, we have to install all the stuff we need to get going.
 ### Prerequisites
@@ -26,7 +26,7 @@ Scala code runner version 2.13.1 -- Copyright 2002-2019, LAMP/EPFL and Lightbend
 The two prerequisite steps are all that you technically need to work with scala, but having a proper build tool and an IDE make life easier. I'm going to go with SBT and Visual Studio Code for my build tool and IDE.
 #### Install sbt
 Again, get it from Homebrew:
-`brew install sbt`
+> `brew install sbt`
 
 #### Set up VSCode to work with Scala
 I assume you have VSCode installed. If you don't you can get it [here](https://code.visualstudio.com).
@@ -42,7 +42,7 @@ target/
 ```
 
 ## My first program
-Time to write out first app. We'll go with the canonical Hello, World example. At the root of the git repo, create the following folders: `src/main/scala/com/my_first_app`. In this folder, create a file called `Application.scala`.
+Time to write out first app. We'll go with the typical Hello, World example. At the root of the git repo, create the following folders: `src/main/scala/com/my_first_app`. In this folder, create a file called `Application.scala`.
 
 Now, open a new terminal and navigate to the root of your repo. Type `sbt` to enter the sbt shell environment. It's going to create a bunch of folders for you, so just wait until it gives you a command prompt. Once it does that, type `~compile`. This tells sbt to continually compile your project as you make changes to your code. As a bonus, Metals uses this to provide syntax highlighting directly in VSCode.
 
@@ -90,3 +90,31 @@ arg0: one
 arg1: two
 arg2: three
 ```
+
+## Doing stuff with Spark
+### Install Spark
+The easiest way is again from Homebrew: 
+> `brew install apache-spark`
+
+### Add Spark to our dependencies:
+To use Spark we need to add it to our dependencies. We do this by adding a line to `build.sbt`: 
+> `libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.4"`  
+
+### Write our first Spark program:
+Change your scala application to look like this:
+```scala
+object Application {
+  def main(args: Array[String]): Unit = {
+    val spark: SparkSession = SparkSession.builder
+      .appName("Spark-Test")
+      .config("spark.master", "local")
+      .getOrCreate();
+
+    println(s"Spark version: ${spark.version}")
+
+    spark.stop()
+  }
+}
+```
+
+Type `sbt compile run` to compile and run the program. 

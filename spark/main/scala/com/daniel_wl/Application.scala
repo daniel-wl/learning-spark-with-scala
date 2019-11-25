@@ -1,4 +1,4 @@
-package com.my_first_app
+package com.daniel_wl
 
 import org.apache.spark.sql.SparkSession
 

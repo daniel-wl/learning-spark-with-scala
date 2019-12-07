@@ -1,4 +1,4 @@
-package com.daniel_wl.objects
+package com.daniel_wl.scala_classes.objects
 
 //objects are what would be called static classes in other languages
 object Objects {

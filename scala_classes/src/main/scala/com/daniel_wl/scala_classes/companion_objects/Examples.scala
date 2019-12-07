@@ -1,4 +1,6 @@
-package com.daniel_wl.companion_objects
+package com.daniel_wl.scala_classes.companion_objects
+
+import java.{util => ju}
 
 object Examples {
   def Example {
@@ -9,5 +11,8 @@ object Examples {
     val timestamp2: Timestamp = Timestamp(hours = 0, minutes = 2, seconds = 0)
 
     timestamp2.Seconds == timestamp.Seconds
+
+    //access static members
+    val date: ju.Date = Timestamp.toDate(timestamp)
   }
 }

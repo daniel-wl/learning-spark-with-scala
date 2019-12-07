@@ -1,4 +1,5 @@
-package com.daniel_wl.companion_objects
+package com.daniel_wl.scala_classes.companion_objects
+
 import java.sql.Time
 import java.util.Date
 

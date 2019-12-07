@@ -1,4 +1,4 @@
-package com.daniel_wl.objects
+package com.daniel_wl.scala_classes.objects
 
 object Examples {
   def Example: Unit = {

@@ -1,4 +1,4 @@
-package com.daniel_wl.basic_classes
+package com.daniel_wl.scala_classes.basic_classes
 
 /*
 The "argument list" for a class is actually the constructor argument list,
@@ -30,14 +30,4 @@ class BasicClass(foo: String, bar: String) {
   //protected is also similar
   protected def protectedMethod = "protected method"
   protected val ProtectedMember = "protected string member"
-}
-
-object Examples {
-  def Example: Unit = {
-    //create instances of classes with the "new" operator
-    val basicClass = new BasicClass("foo", "bar")
-
-    //named arguments are supported
-    val basicClass2 = new BasicClass(bar = "bar", foo = "foo")
-  }
 }

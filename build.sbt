@@ -7,6 +7,13 @@ lazy val hello_world = project
     version := "0.1"
   )
 
+lazy val scala_classes = project
+  .in(file("scala_classes"))
+  .settings(
+    name := "scala-class-examples",
+    version := "0.1"
+  )
+
 lazy val spark = project
   .in(file("spark"))
   .settings(

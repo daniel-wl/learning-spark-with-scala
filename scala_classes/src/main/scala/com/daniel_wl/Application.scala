@@ -7,6 +7,5 @@ object Application extends App {
 
     //named arguments are supported
     val basicClass2 = new BasicClass(bar = "bar", foo = "foo")
-
   }
 }

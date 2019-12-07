@@ -48,4 +48,25 @@ object Examples {
     val person2 = person1.copy(firstName = "John")
     person2.toString //prints "Person(John,Doe)"
   }
+
+  def patternMatchingExample = {
+    val person = new Person("John", "Doe")
+
+    person match {
+      case Person("Jane", "Doe") => "Matched Jane Doe" //no match
+      case Person("John", "Deo") => "Matched John Deo" //no match
+      case Person("John", "Doe") => "Matched John Doe" //match!
+      case _                     => throw new RuntimeException(s"${person.toString} not found.")
+    }
+
+    //different patterns to match on
+    val firstName = "Jane"
+    val lastName = "Johnson"
+    person match {
+      case Person("John", _)     => "Matches anyone with first name \"John\""
+      case Person("John", "Doe") => "Matches John Doe specifically"
+      case Person(firstName, lastName) =>
+        "Matches Persons with firstName and lastName"
+    }
+  }
 }

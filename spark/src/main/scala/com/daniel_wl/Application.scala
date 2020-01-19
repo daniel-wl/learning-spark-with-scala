@@ -11,7 +11,7 @@ object Application {
       .getOrCreate();
 
     try {
-      ReadSingleFile.run("/Users/daniel/Git/learning-scala/README.md", spark)
+      ReadSingleFile.run("/Users/daniel/Git/learning-spark-with-scala/README.md", spark)
     } catch {
       case e: Exception => println(e.getMessage())
     }

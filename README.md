@@ -111,10 +111,8 @@ object Application {
       .getOrCreate();
 
     println(s"Spark version: ${spark.version}")
-
-    spark.stop()
   }
 }
 ```
 
-Type `sbt compile run` to compile and run the program. 
+Type `sbt clean compile package` to compile the program and package it into a jar. Take note of where the jar is placed. You _could_ run the program now with `sbt run`, but you may get some errors in your output. The better way to run spark programs is to submit them as spark jobs. You do this by passing the jar and class to run, along with any arguments, to spark on the command line: `spark-submit --class "class name here" --master "spark url" /path/to/jar [arguments]`. In our example this would be `spark-submit --class "com.daniel_wl.Application" --master "local[4]" ./spark/target/scala-2.11/learning-spark-with-scala_2.11-0.1.jar`. Note that we quoted `"local[4]"`. This is because I'm using zsh as my shell. You might not have to do this if you're using bash or some other shell.
